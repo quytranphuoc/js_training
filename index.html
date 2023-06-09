@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise One</title>
+
+</head>
+<body>
+    <script>
+        // 1. Khai báo biến A là một mảng rỗng
+        let A = [];
+    
+        // 2. Hàm thêm mới một đối tượng vào mảng A
+        function addObjectToArray(id, name, email, age, address) {
+          let newObj = {
+            id: id,
+            name: name,
+            email: email,
+            age: age,
+            address: address
+          };
+    
+          A.push(newObj);
+        }
+    
+        // Thêm đối tượng vào mảng A
+        addObjectToArray(1, 'My name', 'abc@gmail.com', 18, '74 Quang Trung');
+    
+        // 3. Hàm in ra mảng id của các đối tượng trong A
+        function printIds() {
+          let ids = A.map(obj => obj.id);
+          console.log(ids);
+        }
+    
+        // In ra mảng id
+        printIds();
+    
+        // 4. Thêm mới một đối tượng khác vào mảng A
+        addObjectToArray(2, 'My name 2', 'abcd@gmail.com', 21, '74 Tran Phu');
+    
+        // 5. Hàm thay đổi tên của đối tượng có id là 1 thành "Name"
+        function changeNameById(id, newName) {
+          let obj = A.find(obj => obj.id === id);
+          if (obj) {
+            obj.name = newName;
+          }
+        }
+    
+        // Thay đổi tên đối tượng có id là 1 thành "Name"
+        changeNameById(1, 'Name');
+    
+        // 6. Hàm lọc ra những đối tượng có tuổi lớn hơn 20 trong A
+        function filterObjectsByAge() {
+          let filteredObjects = A.filter(obj => obj.age > 20);
+          console.log(filteredObjects);
+        }
+    
+        // Lọc ra những đối tượng có tuổi lớn hơn 20
+        filterObjectsByAge();
+    
+        // 7. Hàm tính tổng số tuổi của các đối tượng trong A
+        function calculateTotalAge() {
+          let totalAge = A.reduce((sum, obj) => sum + obj.age, 0);
+          console.log(totalAge);
+        }
+    
+        // Tính tổng số tuổi của các đối tượng
+        calculateTotalAge();
+    
+        // 8. Hàm lọc ra những đối tượng có address chứa cụm từ "Quang Trung"
+        function filterObjectsByAddress(keyword) {
+          let filteredObjects = A.filter(obj => obj.address.includes(keyword));
+          console.log(filteredObjects);
+        }
+    
+        // Lọc ra những đối tượng có address chứa cụm từ "Quang Trung"
+        filterObjectsByAddress('Quang Trung');
+    
+        // 9. Hàm xóa đối tượng có id là 1
+        function deleteObjectById(id) {
+          A = A.filter(obj => obj.id !== id);
+        }
+    
+        // Xóa đối tượng có id là 1
+        deleteObjectById(1);
+    
+      </script>
+</body>
+</html>
